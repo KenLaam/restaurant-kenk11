@@ -1,0 +1,20 @@
+<%= simple_form_for (@food_item) do |f| %>
+    <% if @food_item.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@food_item.errors.count, "error") %> prohibited this food item from being saved:</h2>
+
+          <ul>
+            <% @food_item.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :section, collection: Section.all %>
+    <%= f.input :price %>
+    <%= f.button :submit, class: 'btn btn-success-outline' %>
+    <%= link_to 'Back', admin_path, class: "btn btn-secondary-outline" %>
+<% end %>

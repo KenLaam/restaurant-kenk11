@@ -1,9 +1,4 @@
-<br>
-<div class="row btn-group" role="group" aria-label="Basic example">
-  <% Section.all.each do |section| %>
-      <%= link_to section, menu_path(section: section), class: 'btn btn-secondary' %>
-  <% end %>
-</div>
+<%= link_to 'New', new_food_items_path, class: 'btn btn-success-outline' %>
 
 <table class="table">
   <thead>
