@@ -1,16 +1,32 @@
 <br>
-<div class="row btn-group" role="group" aria-label="Basic example">
-  <% Section.all.each do |section| %>
-      <%= link_to section, menu_path(section: section), class: 'btn btn-secondary' %>
-  <% end %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <% Section.all.each do |section| %>
+          <%= link_to section, menu_path(section: section), class: 'btn btn-secondary' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6" align="right">
+    <div class="dropdown pull-right">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <a class="dropdown-item" href="#">Alphabetical</a>
+        <a class="dropdown-item" href="#">Price low to high</a>
+        <a class="dropdown-item" href="#">Price high to low</a>
+      </div>
+    </div>
+  </div>
 </div>
+<br>
 
 <table class="table">
   <thead>
   <tr>
-    <th>#</th>
+    <th></th>
     <th>Name</th>
-    <th>Description</th>
     <th>Section</th>
     <th>Price</th>
     <th>Thumbnail</th>
@@ -21,10 +37,9 @@
       <tr>
         <th scope="row"><%= food_item.id %></th>
         <td><%= food_item.name %></td>
-        <td><%= food_item.description %></td>
         <td><%= food_item.section %></td>
         <td><%= food_item.price %></td>
-        <td><%= image_tag food_item.refactor_thumbnail %></td>
+        <td><%= image_tag food_item.refactor_thumbnail, size: '200x150' %></td>
       </tr>
   <% end %>
   </tbody>
