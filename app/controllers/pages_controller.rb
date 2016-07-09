@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def index
   end
 
-  def admin
+  def manager
     @food_items = FoodItem.all
   end
 
