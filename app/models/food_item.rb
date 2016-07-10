@@ -7,7 +7,7 @@ class FoodItem < ApplicationRecord
     if thumbnail.present?
       thumbnail
     else
-      "http://loremflickr.com/320/240/#{CGI.escape name}"
+      "http://loremflickr.com/480/360/#{CGI.escape name}"
     end
   end
 

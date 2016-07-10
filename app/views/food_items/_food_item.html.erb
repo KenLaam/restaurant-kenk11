@@ -1,7 +1,26 @@
-<%= food_item.name %>
-<%= food_item.description %>
-<%= food_item.price_currency %>
-<%= food_item.section %>
-<%= image_tag food_item.refactor_thumbnail %>
-<br>
-<%= link_to 'Order now', new_food_item_order_path(food_item_id: food_item.id) %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag food_item.refactor_thumbnail, size: '200x160' %>
+      </div>
+      <div class="card-header">
+        <%= link_to food_item.name, food_item_path(food_item) %>
+      </div>
+      <div class="card-copy">
+        <p><%= food_item.description %></p>
+        <span class="label label-pill label-info"><%= food_item.price_currency %></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <%= simple_form_for [food_item, Order.new] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :phone %>
+        <%= f.input :address %>
+        <%= f.submit 'Submit order', class: 'btn btn-success-outline' %>
+        <%= link_to 'Back', menu_path, class: 'btn btn-secondary-outline' %>
+    <% end %>
+  </div>
+</div>

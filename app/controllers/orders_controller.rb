@@ -3,6 +3,10 @@ class OrdersController < ApplicationController
     @food_item = FoodItem.find params[:food_item_id]
   end
 
+  def show
+    @order = Order.last
+  end
+
   def create
     @order = Order.new(order_params)
     @food_item = FoodItem.find params[:food_item_id]
@@ -10,7 +14,7 @@ class OrdersController < ApplicationController
 
     if @order.save
       flash[:success] = 'Order is created successful. Thank you!'
-      redirect_to menu_path
+      render 'show'
     else
       flash[:error] = "Error: #{@order.errors.full_messages.to_sentence}"
       @food_item = FoodItem.find params[:food_item_id]

@@ -1,4 +1,3 @@
-<br>
 <div class="row">
   <div class="col-md-6">
     <div class="btn-group" role="group" aria-label="Basic example">
@@ -21,25 +20,19 @@
   </div>
 </div>
 <br>
-
-<table class="table">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Section</th>
-    <th>Price</th>
-    <th>Thumbnail</th>
-  </tr>
-  </thead>
-  <tbody>
+<div class="cards">
   <% @sorted.each do |food_item| %>
-      <tr>
-        <td><%= link_to food_item.name, food_item %></td>
-        <td><%= link_to food_item.section, menu_path(section: food_item.section) %></td>
-        <td><span class="label label-pill label-info"><%= food_item.price_currency %>
-        </span></td>
-        <td><%= image_tag food_item.refactor_thumbnail, size: '200x150' %></td>
-      </tr>
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag food_item.refactor_thumbnail, size: '200x160' %>
+        </div>
+        <div class="card-header">
+          <%= link_to food_item.name, food_item_path(food_item) %>
+        </div>
+        <div class="card-copy">
+          <p><%= food_item.description %></p>
+          <span class="label label-pill label-info"><%= food_item.price_currency %></span>
+        </div>
+      </div>
   <% end %>
-  </tbody>
-</table>
+</div>
