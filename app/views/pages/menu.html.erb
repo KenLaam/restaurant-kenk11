@@ -13,9 +13,9 @@
         Sort by
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <%= link_to 'Alphabetical', menu_path(sort: 'Alphabetical'), class: 'dropdown-item' %>
-        <%= link_to 'Price low to high', menu_path(sort: 'Alphabetical'), class: 'dropdown-item' %>
-        <%= link_to 'Price high to low', menu_path(sort: 'Alphabetical'), class: 'dropdown-item' %>
+        <%= link_to 'Alphabetical', menu_path(sort: 'name'), class: 'dropdown-item' %>
+        <%= link_to 'Price low to high', menu_path(sort: 'price-asc'), class: 'dropdown-item' %>
+        <%= link_to 'Price high to low', menu_path(sort: 'price-desc'), class: 'dropdown-item' %>
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @food_items.each do |food_item| %>
+  <% @sorted.each do |food_item| %>
       <tr>
         <td><%= link_to food_item.name, food_item %></td>
         <td><%= link_to food_item.section, menu_path(section: food_item.section) %></td>

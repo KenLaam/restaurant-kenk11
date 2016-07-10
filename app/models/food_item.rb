@@ -1,5 +1,6 @@
 class FoodItem < ApplicationRecord
-  validates :name, :price, :section, presence:true
+  has_many :orders, dependent: :destroy
+  validates :name, :price, :section, presence: true
 
 
   def refactor_thumbnail
