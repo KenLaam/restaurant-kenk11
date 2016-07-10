@@ -3,5 +3,5 @@
 <%= food_item.price_currency %>
 <%= food_item.section %>
 <%= image_tag food_item.refactor_thumbnail %>
-
-<%= link_to 'Order', root_path %>
+<br>
+<%= link_to 'Order now', new_order_path(id: food_item.id) %>

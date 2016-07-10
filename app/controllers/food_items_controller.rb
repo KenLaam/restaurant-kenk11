@@ -2,7 +2,6 @@ class FoodItemsController < ApplicationController
   before_action :set_food_item, only: [:show, :edit, :update, :destroy, :order]
 
   def index
-    @order_food = current_order.order_foods.new
   end
 
   def new
@@ -10,10 +9,11 @@ class FoodItemsController < ApplicationController
   end
 
   def order
+    @order = Order.new
+    @order.food_item = @food_item
   end
 
   def show
-
   end
 
   def edit
@@ -21,7 +21,6 @@ class FoodItemsController < ApplicationController
 
   def create
     @food_item = FoodItem.new(food_item_params)
-
     respond_to do |format|
       if @food_item.save
         format.html { redirect_to admin_path, notice: 'FoodItem was successfully created.' }
@@ -62,5 +61,9 @@ class FoodItemsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def food_item_params
     params.require(:food_item).permit(:id, :name, :description, :price, :section)
+  end
+
+  def order_params
+    params.require(:order).permit(:id, :name, :email, :total, :food_item)
   end
 end

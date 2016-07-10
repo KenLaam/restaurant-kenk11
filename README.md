@@ -4,7 +4,7 @@
 
 Submitted by: **Lam Hoang Vu**
 
-Time spent: **XX** hours spent in total
+Time spent: **15** hours spent in total
 
 URL: **[http://restaurant-kenk11.herokuapp.com/](http://restaurant-kenk11.herokuapp.com/)**
 
