@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     @order.food_item = @food_item
 
     if @order.save
-      flash[:success] = 'Order is created successful. Thank you!'
+      flash[:success] = 'Order was created successful. Thank you!'
       render 'show'
     else
       flash[:error] = "Error: #{@order.errors.full_messages.to_sentence}"

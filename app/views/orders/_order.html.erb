@@ -1,4 +1,4 @@
-Here is your order
+Here is your order created at <%= @order.created_at.strftime('%A, %B %d, %r') %>
 <br>
 Name: <%= @order.name %>
 <br>
@@ -9,3 +9,9 @@ Address: <%= @order.address %>
 Food: <%= @order.food_item.name %>
 <br>
 Price: <%= @order.food_item.price_currency %>
+<br>
+Shipping Fee: <%= @order.food_item.shipping %>
+<br>
+Total: <%= @order.food_item.total %>
+<br>
+<%= link_to 'Back', menu_path, class: 'btn btn-secondary-outline' %>
