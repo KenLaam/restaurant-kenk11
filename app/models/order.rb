@@ -1,9 +1,13 @@
 class Order < ApplicationRecord
-  belongs_to :food_item
+  has_many :order_foods
+  before_save :update_subtotal
 
-  def total_price
-    ActionController::Base.helpers.number_to_currency(food_item.price * quantity, precision: 0, unit: "VNĐ", separator: ",", format: "%n %u")
-
+  def subtotal
+    order_foods.collect { |od| od.valid? ? (od.quantity * od.food_price) : 0 }.sum
   end
 
+  private
+  def update_subtotal
+    self[:subtotal] = subtotal
+  end
 end

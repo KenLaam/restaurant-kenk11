@@ -1,5 +1,5 @@
 class FoodItem < ApplicationRecord
-  has_many :orders
+  has_many :order_foods
   validates :name, :price, :section, presence:true
 
 
