@@ -1,8 +1,15 @@
 class FoodItemsController < ApplicationController
-  before_action :set_food_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_food_item, only: [:show, :edit, :update, :destroy, :order]
+
+  def index
+    @order_food = current_order.order_foods.new
+  end
 
   def new
     @food_item = FoodItem.new
+  end
+
+  def order
   end
 
   def show

@@ -10,12 +10,12 @@
   <div class="col-md-6" align="right">
     <div class="dropdown pull-right">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown
+        Sort by
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <a class="dropdown-item" href="#">Alphabetical</a>
-        <a class="dropdown-item" href="#">Price low to high</a>
-        <a class="dropdown-item" href="#">Price high to low</a>
+        <%= link_to 'Alphabetical', menu_path(sort: 'Alphabetical'), class: 'dropdown-item' %>
+        <%= link_to 'Price low to high', menu_path(sort: 'Alphabetical'), class: 'dropdown-item' %>
+        <%= link_to 'Price high to low', menu_path(sort: 'Alphabetical'), class: 'dropdown-item' %>
       </div>
     </div>
   </div>
@@ -25,7 +25,6 @@
 <table class="table">
   <thead>
   <tr>
-    <th></th>
     <th>Name</th>
     <th>Section</th>
     <th>Price</th>
@@ -35,10 +34,10 @@
   <tbody>
   <% @food_items.each do |food_item| %>
       <tr>
-        <th scope="row"><%= food_item.id %></th>
-        <td><%= food_item.name %></td>
-        <td><%= food_item.section %></td>
-        <td><%= food_item.price %></td>
+        <td><%= link_to food_item.name, food_item %></td>
+        <td><%= link_to food_item.section, menu_path(section: food_item.section) %></td>
+        <td><span class="label label-pill label-info"><%= food_item.price_currency %>
+        </span></td>
         <td><%= image_tag food_item.refactor_thumbnail, size: '200x150' %></td>
       </tr>
   <% end %>

@@ -1,5 +1,7 @@
 class FoodItem < ApplicationRecord
+  has_many :order_foods
   validates :name, :price, :section, presence:true
+
 
   def refactor_thumbnail
     if thumbnail.present?
@@ -9,4 +11,7 @@ class FoodItem < ApplicationRecord
     end
   end
 
+  def price_currency
+    ActionController::Base.helpers.number_to_currency(price, precision: 0, unit: "VNĐ", separator: ",", format: "%n %u")
+  end
 end
