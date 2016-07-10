@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :food_items, :order_foods, :orders
+
+  resources :food_items do
+    resources :orders
+  end
 
   root 'pages#index'
 

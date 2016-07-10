@@ -8,11 +8,6 @@ class FoodItemsController < ApplicationController
     @food_item = FoodItem.new
   end
 
-  def order
-    @order = Order.new
-    @order.food_item = @food_item
-  end
-
   def show
   end
 
@@ -63,7 +58,4 @@ class FoodItemsController < ApplicationController
     params.require(:food_item).permit(:id, :name, :description, :price, :section)
   end
 
-  def order_params
-    params.require(:order).permit(:id, :name, :email, :total, :food_item)
-  end
 end

@@ -4,4 +4,4 @@
 <%= food_item.section %>
 <%= image_tag food_item.refactor_thumbnail %>
 <br>
-<%= link_to 'Order now', new_order_food_path(food_item_id: food_item.id) %>
+<%= link_to 'Order now', new_food_item_order_path(food_item_id: food_item.id) %>

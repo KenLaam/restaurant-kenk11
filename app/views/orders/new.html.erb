@@ -1,5 +1,11 @@
-<%= @selected_item.name %>
-<br>
-Please fill your information
+<h1>
+  <small>You ordered</small> <%= @food_item.name %>
+</h1>
 
-<%= render 'form' %>
+<%= simple_form_for [@food_item, Order.new] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :phone %>
+    <%= f.input :address %>
+    <%= f.submit 'Submit order', class: 'btn btn-success-outline' %>
+    <%= link_to 'Back', menu_path, class: "btn btn-secondary-outline" %>
+<% end %>
