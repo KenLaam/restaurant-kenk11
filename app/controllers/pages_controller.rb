@@ -9,9 +9,9 @@ class PagesController < ApplicationController
 
   def menu
     if params[:section].nil?
-      @food_items = FoodItem.all.order(params[:sort_param])
+      @food_items = FoodItem.all.order(params[:sort])
     else
-      @food_items = FoodItem.by_section(params[:section]).order(params[:sort_param])
+      @food_items = FoodItem.by_section(params[:section]).order(params[:sort])
     end
   end
 
