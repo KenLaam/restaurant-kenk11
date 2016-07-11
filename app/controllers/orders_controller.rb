@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @order = Order.last
+  end
+
   def new
     @food_item = FoodItem.find params[:food_item_id]
   end

@@ -1,17 +1,28 @@
-Here is your order created at <%= @order.time %>
-<br>
-Name: <%= @order.name %>
-<br>
-Phone: <%= @order.phone %>
-<br>
-Address: <%= @order.address %>
-<br>
-Food: <%= @order.food_item.name %>
-<br>
-Price: <%= @order.food_item.price_currency %>
-<br>
-Shipping Fee: <%= @order.food_item.shipping %>
-<br>
-Total: <%= @order.food_item.total %>
-<br>
+Your order created at <%= @order.time %>
+<table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+  <thead>
+  <tr>
+    <th>Your information</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Name</td>
+    <td></td>
+    <td><%= @order.name %></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td></td>
+    <td><%= @order.phone %></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td></td>
+    <td><%= @order.address %></td>
+  </tr>
+  </tbody>
+</table>
 <%= link_to 'Back', menu_path, class: 'btn btn-secondary-outline' %>

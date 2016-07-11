@@ -2,6 +2,9 @@ class FoodItem < ApplicationRecord
   has_many :orders, dependent: :destroy
   validates :name, :price, :section, presence: true
 
+  def self.by_section(section)
+    where(section: section)
+  end
 
   def refactor_thumbnail
     if thumbnail.present?

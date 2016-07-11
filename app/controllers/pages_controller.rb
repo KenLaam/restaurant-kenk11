@@ -8,21 +8,10 @@ class PagesController < ApplicationController
   end
 
   def menu
-    if params[:section]
-      @food_items = FoodItem.where section: params[:section]
+    if params[:section].nil?
+      @food_items = FoodItem.all.order(params[:sort_param])
     else
-      @food_items = FoodItem.all
-    end
-
-    case params[:sort]
-      when 'name'
-        @sorted = @food_items.order('name ASC')
-      when 'price-asc'
-        @sorted = @food_items.order('price ASC')
-      when 'price-desc'
-        @sorted = @food_items.order('price DESC')
-      else
-        @sorted = @food_items
+      @food_items = FoodItem.by_section(params[:section]).order(params[:sort_param])
     end
   end
 
