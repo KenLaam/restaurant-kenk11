@@ -1,28 +1,53 @@
-Your order created at <%= @order.time %>
-<table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
-  <thead>
-  <tr>
-    <th>Your information</th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Name</td>
-    <td></td>
-    <td><%= @order.name %></td>
-  </tr>
-  <tr>
-    <td>Phone</td>
-    <td></td>
-    <td><%= @order.phone %></td>
-  </tr>
-  <tr>
-    <td>Address</td>
-    <td></td>
-    <td><%= @order.address %></td>
-  </tr>
-  </tbody>
-</table>
+<div class="row">
+  <table class="table">
+    <thead>
+    <tr>
+      <th colspan="2">Your information</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Name</td>
+      <td><%= @order.name %></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><%= @order.phone %></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td><%= @order.address %></td>
+    </tr>
+    <tr>
+      <td>Ordered at</td>
+      <td><%= @order.time %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th colspan="2">Your order</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th><%= @order.food_item.name %></th>
+      <td><%= @order.food_item.price_currency %></td>
+    </tr>
+    <tr>
+      <th>Shipping fee
+      </th>
+      <td><%= @order.food_item.shipping %></td>
+    </tr>
+    <tr>
+      <th> Total
+      </th>
+      <td><%= @order.food_item.total %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 <%= link_to 'Back', menu_path, class: 'btn btn-secondary-outline' %>
