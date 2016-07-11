@@ -54,6 +54,7 @@ The following **known issues**:
 
 * List bugs or things that don't work yet
 
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
